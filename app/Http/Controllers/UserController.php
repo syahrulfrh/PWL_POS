@@ -11,8 +11,14 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = UserModel::where('username','manager9')->firstOrFail();
+        $user = UserModel::where('level_id',2)->count();
+        dd($user);
         return view('user',['data' => $user]);
+    }
+}
+        
+        //$user = UserModel::where('username','manager9')->firstOrFail();
+        //return view('user',['data' => $user]);
 
         //$user = UserModel::findOrFail(1);
         //return view('user',['data' => $user]);
@@ -62,6 +68,3 @@ class UserController extends Controller
         //     'level_id' => 4
         //];
         //UserModel::insert($data); //tambahkan data ke tabel m_user
-
-    }
-}

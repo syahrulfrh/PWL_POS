@@ -10,20 +10,13 @@
             <th>ID</th>
             <th>Username</th>
             <th>Nama</th>
-            <th>Id level pengguna</th>
+            <th>ID level pengguna</th>
         </tr>
-        @foreach ($data as $d)
         <tr>
-                {{-- <td>{{$data->user_id}}</td>
+                <td>{{$data->user_id}}</td>
                 <td>{{$data->username}}</td>
                 <td>{{$data->nama}}</td>
-                <td>{{$data->level_id}}</td> --}}
-                <td>{{$d->user_id}}</td>
-                <td>{{$d->username}}</td>
-                <td>{{$d->nama}}</td>
-                <td>{{$d->level_id}}</td>  
-        </tr>
-        @endforeach
-        </table>   
+                <td>{{$data->level_id}}</td> 
+    </tr>
 </body>
 </html>  

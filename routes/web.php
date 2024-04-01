@@ -46,3 +46,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// TUGAS PRAKTIKUM JOBSHEET 5
+Route::get('/kategori/create',[KategoriController::class,'create'])->name('/kategori/create');
+Route::post('/kategori',[KategoriController::class,'store'])->name('/kategori');
+
+Route::get('/kategori/edit/{id}',[KategoriController::class,'edit'])->name('kategori.edit');
+Route::get('/kategori/edit_save/{id}',[KategoriController::class,'edit_save'])->name('kategori.update');
+Route::get('/kategori/hapus/{id}', [KategoriController::class, 'hapus'])->name('/kategori/hapus');

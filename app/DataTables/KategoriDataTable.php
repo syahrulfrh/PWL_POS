@@ -17,12 +17,17 @@ class KategoriDataTable extends DataTable
  *
  * @param QueryBuilder $query Results from query() method.
  */
- public function dataTable(QueryBuilder $query): EloquentDataTable
- {
- return (new EloquentDataTable($query))
-/* ->addColumn('action', 'kategori.action') */
- ->setRowId('id');
- }
+public function dataTable(QueryBuilder $query): EloquentDataTable
+{
+    return (new EloquentDataTable($query))
+        ->addColumn('action', function ($data) {
+            return '<div class="btn-group" role="group">'
+                . '<a href="' . route('kategori.edit', $data->kategori_id) . '" class="btn btn-sm btn-warning">Edit</a>'
+                . '<a href="' . route('/kategori/hapus', $data->kategori_id) . '" class="btn btn-sm btn-danger">Delete</a>'
+                . '</div>';
+        })
+        ->setRowId('kategori_id');
+}
  /**
  * Get the query source of dataTable.
  */
@@ -50,7 +55,8 @@ return $this->builder()
     Button::make('pdf'),
     Button::make('print'),
     Button::make('reset'),
-    Button::make('reload')
+    Button::make('reload'),
+    Button::make('add')
      ]);
      }
      /**
@@ -69,7 +75,20 @@ return $this->builder()
      Column::make('kategori_nama'),
      Column::make('created_at'),
      Column::make('updated_at'),
+     Column::computed('action')
+     ->exportable(false)
+     ->printable(false)
+     ->width(60)
+     ->addClass('text-center')
      ];
+     }
+     
+     public function hapus($id)
+     {
+        $kategori = m_kategori::find($id);
+        $kategori -> delete();
+
+        return redirect('/kategori');
      }
      /**
      * Get the filename for export.

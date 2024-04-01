@@ -1,5 +1,7 @@
 <?php
 
+use function Laravel\Prompts\text;
+
 return [
 
     /*
@@ -318,6 +320,13 @@ return [
         [
             'text' => 'pages',
             'url' => 'admin/pages',
+            'icon' => 'far fa-fw fa-file',
+            'label' => 4,
+            'label_color' => 'success',
+        ],
+        [
+            'text' => 'Manage Kategori',
+            'url' => '/kategori',
             'icon' => 'far fa-fw fa-file',
             'label' => 4,
             'label_color' => 'success',

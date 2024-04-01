@@ -11,10 +11,9 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = UserModel
-        ::all();
+        $user = UserModel::with('level')->get();
         return view('user',['data' => $user]);
-     }
+    }
 
     public function tambah()
      {
@@ -44,23 +43,23 @@ class UserController extends Controller
 
     public function ubah_simpan($id,Request $request){
         $user = UserModel::find($id);
-
-        $user->username = $request->username;
-        $user->nama = $request->nama;
-        $user->level_id = $request->level_id;
-
-        $user->save();
-        return redirect('/user');
-    }
-
-    public function hapus($id)
-    {
-        $user = UserModel::find($id);
-        $user->delete();
-
-        return redirect('/user');
+    
     }
 }
+//         $user->username = $request->username;
+//         $user->nama = $request->nama;
+//         $user->level_id = $request->level_id;
+
+//         $user->save();
+//         return redirect('/user');
+//     }
+// ;
+//     public function hapus($id)
+//     {
+//         $user = UserModel::find($id);
+//         $user->delete();
+
+//         return redirect('/user')
 
         // $user->username = 'manager12';
 

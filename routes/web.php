@@ -61,3 +61,7 @@ Route::get('/user/create', function(){
 Route::get('/level/create', function(){
     return view('level.create');
 });
+
+Route::get('/user/update', [UserController::class, 'update'])->name('/user/update');
+Route::get('/kategori/create', [KategoriController::class, 'create']);
+Route::post('/kategori', [KategoriController::class, 'store']);

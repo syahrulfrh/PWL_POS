@@ -36,7 +36,7 @@
 {{-- Add common Javascript/Jquery code --}}
 {{-- @push('js')
 <script>
- $(document).ready(function() { --}}
+ $(document).ready(function() { --}}z
  {{-- // Add your common script logic here...
  });
 </script>

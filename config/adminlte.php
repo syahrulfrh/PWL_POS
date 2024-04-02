@@ -332,11 +332,14 @@ return [
             'label_color' => 'success',
         ],
         [
+            'text' => 'Manage Level',
+            'url' => '/level',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
             'text' => 'Manage User',
             'url' => '/user',
             'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
         [

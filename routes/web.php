@@ -54,3 +54,10 @@ Route::post('/kategori',[KategoriController::class,'store'])->name('/kategori');
 Route::get('/kategori/edit/{id}',[KategoriController::class,'edit'])->name('kategori.edit');
 Route::get('/kategori/edit_save/{id}',[KategoriController::class,'edit_save'])->name('kategori.update');
 Route::get('/kategori/hapus/{id}', [KategoriController::class, 'hapus'])->name('/kategori/hapus');
+
+Route::get('/user/create', function(){
+    return view('user.create');
+});
+Route::get('/level/create', function(){
+    return view('level.create');
+});

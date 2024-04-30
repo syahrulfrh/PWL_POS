@@ -15,7 +15,7 @@ placeholder="Search" aria-label="Search">
 <nav class="mt-2">
 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview"
 role="menu" data-accordion="false">
-<li class="nav-item">
+<class="nav-item">
 <a href="{{ url('/') }}" class="nav-link {{ ($activeMenu == 'dashboard')? 
 'active' : '' }} ">
 <i class="nav-icon fas fa-tachometer-alt"></i>

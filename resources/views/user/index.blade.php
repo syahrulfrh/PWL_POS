@@ -5,7 +5,7 @@
     <div class="card-header">
         <h3 class="card-title">{{ $page->title }}</h3>
         <div class="card-tools">
-            <a class="btn btn-sm btn-primary mt-1" href="{{ url('user/create') }}">Tambah</a>
+        <a href="{{ url('user/create') }}" class="btn btn-sm btn-primary -mt-1">Tambah</a>
         </div>
     </div>
     <div class="card-body">
@@ -55,11 +55,15 @@
 <script>
     $(document).ready(function() {
         var dataUser = $('#table_user').DataTable({
-            serverSide: true,
+            processing: true,
+            serverSide : true,
             ajax: {
                 "url": "{{ url('user/list') }}",
                 "dataType": "json",
-                "type": "POST"
+                "type": "POST",
+                "data": function (d) {
+                    d.level_id = $('#level_id').val();
+                }
             },
             columns: [
                 {
@@ -93,6 +97,9 @@
                     searchable: false
                 }
             ]
+        });
+        $('#level_id').on('change', function() {
+            dataUser.ajax.reload();
         });
     });
 </script>
